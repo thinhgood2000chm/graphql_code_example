@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphql_project',
-    'graphene_django'
+    'graphene_django',
+    "rest_framework"
 ]
 
 MIDDLEWARE = [
@@ -49,9 +50,18 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+
+GRAPHENE = {
+    "SCHEMA": "graphql_project.schema.schema",
+    'MIDDLEWARE': [
+        'graphene_django.debug.DjangoDebugMiddleware',
+    ]
+
+}
 
 TEMPLATES = [
     {
